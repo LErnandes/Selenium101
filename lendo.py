@@ -4,12 +4,12 @@ import sys
 
 bmp = dict.fromkeys(range(0x10000, sys.maxunicode + 1), 0xfffd)
 
-#options = webdriver.Chrome()
+options = webdriver.ChromeOptions()
 
-#options.add_argument('headless')
-#options.add_argument('window-size=1920x1080')
+options.add_argument('headless')
+options.add_argument('window-size=1920x1080')
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=options)
 driver.get("https://www.alexa.com/siteinfo/google.com")
 
 soup = BeautifulSoup(driver.page_source, 'lxml')
